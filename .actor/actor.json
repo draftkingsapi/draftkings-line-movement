@@ -1,0 +1,14 @@
+{
+  "actorSpecification": 1,
+  "name": "draftkings-line-movement",
+  "title": "DraftKings Line Movement Tracker & Historical Odds",
+  "description": "Track every DraftKings Sportsbook line move: moneyline, spread and total with old and new line, price and direction, opening vs current lines, and the full line history of DraftKings player props. Schedule it for a gap-free move log. Free preview with no key.",
+  "version": "1.0",
+  "buildTag": "latest",
+  "input": "./input_schema.json",
+  "dockerfile": "./Dockerfile",
+  "storages": {
+    "dataset": "./dataset_schema.json"
+  },
+  "output": "./output_schema.json"
+}

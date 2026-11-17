@@ -1,0 +1,501 @@
+{
+  "actorSpecification": 1,
+  "title": "DraftKings line movement",
+  "fields": {
+    "type": "object",
+    "properties": {
+      "observed_at": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      },
+      "sport": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      },
+      "event": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      },
+      "market": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      },
+      "side": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      },
+      "team": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      },
+      "kind": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      },
+      "previous_line": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      },
+      "line": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      },
+      "line_move": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      },
+      "direction": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      },
+      "previous_american": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      },
+      "american": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      },
+      "price_direction": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      },
+      "starts_at": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      },
+      "open_line": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      },
+      "open_american": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      },
+      "line_moves": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      },
+      "price_moves": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      },
+      "opened_at": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      },
+      "player": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      },
+      "stat": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      },
+      "over_american": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      },
+      "under_american": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      },
+      "status": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      },
+      "state": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      },
+      "market_id": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      }
+    }
+  },
+  "views": {
+    "overview": {
+      "title": "Line moves",
+      "description": "Every moneyline, spread and total move, newest first.",
+      "transformation": {
+        "fields": [
+          "observed_at",
+          "sport",
+          "event",
+          "market",
+          "side",
+          "team",
+          "kind",
+          "previous_line",
+          "line",
+          "line_move",
+          "direction",
+          "previous_american",
+          "american",
+          "price_direction",
+          "starts_at"
+        ]
+      },
+      "display": {
+        "component": "table",
+        "properties": {
+          "observed_at": {
+            "label": "Observed",
+            "format": "date"
+          },
+          "sport": {
+            "label": "Sport",
+            "format": "text"
+          },
+          "event": {
+            "label": "Event",
+            "format": "text"
+          },
+          "market": {
+            "label": "Market",
+            "format": "text"
+          },
+          "side": {
+            "label": "Side",
+            "format": "text"
+          },
+          "team": {
+            "label": "Team",
+            "format": "text"
+          },
+          "kind": {
+            "label": "Kind",
+            "format": "text"
+          },
+          "previous_line": {
+            "label": "Old line",
+            "format": "number"
+          },
+          "line": {
+            "label": "Line",
+            "format": "number"
+          },
+          "line_move": {
+            "label": "Move",
+            "format": "number"
+          },
+          "direction": {
+            "label": "Direction",
+            "format": "text"
+          },
+          "previous_american": {
+            "label": "Old price",
+            "format": "number"
+          },
+          "american": {
+            "label": "Price",
+            "format": "number"
+          },
+          "price_direction": {
+            "label": "Price",
+            "format": "text"
+          },
+          "starts_at": {
+            "label": "Starts",
+            "format": "date"
+          }
+        }
+      }
+    },
+    "open_vs_current": {
+      "title": "Opening vs current",
+      "description": "One row per side: opening line and price, current line and price, and how often each moved.",
+      "transformation": {
+        "fields": [
+          "sport",
+          "event",
+          "starts_at",
+          "market",
+          "side",
+          "team",
+          "open_line",
+          "line",
+          "line_move",
+          "open_american",
+          "american",
+          "price_direction",
+          "line_moves",
+          "price_moves",
+          "opened_at",
+          "observed_at"
+        ]
+      },
+      "display": {
+        "component": "table",
+        "properties": {
+          "sport": {
+            "label": "Sport",
+            "format": "text"
+          },
+          "event": {
+            "label": "Event",
+            "format": "text"
+          },
+          "starts_at": {
+            "label": "Starts",
+            "format": "date"
+          },
+          "market": {
+            "label": "Market",
+            "format": "text"
+          },
+          "side": {
+            "label": "Side",
+            "format": "text"
+          },
+          "team": {
+            "label": "Team",
+            "format": "text"
+          },
+          "open_line": {
+            "label": "Open line",
+            "format": "number"
+          },
+          "line": {
+            "label": "Line",
+            "format": "number"
+          },
+          "line_move": {
+            "label": "Move",
+            "format": "number"
+          },
+          "open_american": {
+            "label": "Open price",
+            "format": "number"
+          },
+          "american": {
+            "label": "Price",
+            "format": "number"
+          },
+          "price_direction": {
+            "label": "Price",
+            "format": "text"
+          },
+          "line_moves": {
+            "label": "Line moves",
+            "format": "number"
+          },
+          "price_moves": {
+            "label": "Price moves",
+            "format": "number"
+          },
+          "opened_at": {
+            "label": "Opened",
+            "format": "date"
+          },
+          "observed_at": {
+            "label": "Observed",
+            "format": "date"
+          }
+        }
+      }
+    },
+    "prop_history": {
+      "title": "Player prop line history",
+      "description": "Every recorded change of DraftKings player over/unders, or one summary row per prop.",
+      "transformation": {
+        "fields": [
+          "observed_at",
+          "sport",
+          "player",
+          "stat",
+          "event",
+          "kind",
+          "previous_line",
+          "line",
+          "line_move",
+          "direction",
+          "over_american",
+          "under_american",
+          "open_line",
+          "status",
+          "state",
+          "market_id"
+        ]
+      },
+      "display": {
+        "component": "table",
+        "properties": {
+          "observed_at": {
+            "label": "Observed",
+            "format": "date"
+          },
+          "sport": {
+            "label": "Sport",
+            "format": "text"
+          },
+          "player": {
+            "label": "Player",
+            "format": "text"
+          },
+          "stat": {
+            "label": "Stat",
+            "format": "text"
+          },
+          "event": {
+            "label": "Event",
+            "format": "text"
+          },
+          "kind": {
+            "label": "Kind",
+            "format": "text"
+          },
+          "previous_line": {
+            "label": "Old line",
+            "format": "number"
+          },
+          "line": {
+            "label": "Line",
+            "format": "number"
+          },
+          "line_move": {
+            "label": "Move",
+            "format": "number"
+          },
+          "direction": {
+            "label": "Direction",
+            "format": "text"
+          },
+          "over_american": {
+            "label": "Over",
+            "format": "number"
+          },
+          "under_american": {
+            "label": "Under",
+            "format": "number"
+          },
+          "open_line": {
+            "label": "Open line",
+            "format": "number"
+          },
+          "status": {
+            "label": "Status",
+            "format": "text"
+          },
+          "state": {
+            "label": "State",
+            "format": "text"
+          },
+          "market_id": {
+            "label": "Market ID",
+            "format": "text"
+          }
+        }
+      }
+    }
+  }
+}

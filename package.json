@@ -1,0 +1,23 @@
+{
+  "name": "draftkings-line-movement",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Apify actor: DraftKings Sportsbook line movement, opening vs current lines and player prop line history, read from the documented draftkingsapi.com API.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "node --test test/"
+  },
+  "dependencies": {
+    "apify": "^3.2.6"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/draftkingsapi/draftkings-line-movement"
+  }
+}

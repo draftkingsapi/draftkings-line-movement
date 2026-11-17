@@ -1,0 +1,13 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "DraftKings line movement output",
+  "description": "Line moves, opening vs current lines or player prop line history from this run.",
+  "properties": {
+    "results": {
+      "type": "string",
+      "title": "Results",
+      "description": "All rows from this run as a dataset.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    }
+  }
+}

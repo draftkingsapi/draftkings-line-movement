@@ -1,0 +1,163 @@
+{
+  "title": "DraftKings line movement input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "apiKey": {
+      "title": "API key (optional)",
+      "type": "string",
+      "editor": "textfield",
+      "isSecret": true,
+      "description": "Your draftkingsapi.com key (starts with dk_). Free plan, no card: https://draftkingsapi.com/sign-up. Leave empty for a free preview of real recent DraftKings line moves."
+    },
+    "mode": {
+      "title": "What to fetch",
+      "type": "string",
+      "editor": "select",
+      "default": "moves",
+      "prefill": "moves",
+      "enum": ["moves", "open-vs-current", "prop-history"],
+      "enumTitles": ["Line moves (tracker)", "Opening vs current line", "Player prop line history"],
+      "description": "Line moves returns every moneyline, spread and total move with old and new line and price. Opening vs current gives one row per side with where it opened, where it is now and how often it moved. Player prop line history returns every recorded change of DraftKings player over/unders."
+    },
+    "sport": {
+      "title": "Sport",
+      "type": "string",
+      "editor": "select",
+      "default": "all",
+      "prefill": "NBA",
+      "enum": ["all", "NBA", "NFL", "NHL", "MLB", "NCAAB", "NCAAF", "EPL", "MLS"],
+      "enumTitles": ["All sports", "NBA", "NFL", "NHL", "MLB", "College basketball", "College football", "Premier League", "MLS"],
+      "description": "Sport to track. Player prop line history covers the sports DraftKings lists player over/unders for (NBA, NFL, NHL and others in season)."
+    },
+    "market": {
+      "title": "Market",
+      "type": "string",
+      "editor": "select",
+      "default": "all",
+      "prefill": "all",
+      "enum": ["all", "moneyline", "spread", "total"],
+      "enumTitles": ["All game markets", "Moneyline", "Spread", "Total"],
+      "description": "Line moves and opening vs current: which game market to include."
+    },
+    "moveType": {
+      "title": "Kind of move",
+      "type": "string",
+      "editor": "select",
+      "default": "all",
+      "prefill": "all",
+      "enum": ["all", "line", "price"],
+      "enumTitles": ["Line and price moves", "Line moves only", "Price moves only"],
+      "description": "A line move changes the spread or total number; a price move changes only the odds."
+    },
+    "games": {
+      "title": "Games",
+      "type": "string",
+      "editor": "select",
+      "default": "upcoming",
+      "prefill": "upcoming",
+      "enum": ["upcoming", "today", "all"],
+      "enumTitles": ["Upcoming games", "Upcoming and started in the last 6 hours", "Every retained game"],
+      "description": "Line moves and opening vs current: which games to read. Every retained game also includes finished games and uses more requests."
+    },
+    "search": {
+      "title": "Team",
+      "type": "string",
+      "editor": "textfield",
+      "description": "Optional part of a team name, for example Lakers."
+    },
+    "eventId": {
+      "title": "Event ID",
+      "type": "string",
+      "editor": "textfield",
+      "description": "Optional draftkingsapi.com event id (the event_id field) to follow a single game."
+    },
+    "lookbackHours": {
+      "title": "Look back (hours)",
+      "type": "integer",
+      "editor": "number",
+      "default": 24,
+      "minimum": 1,
+      "maximum": 720,
+      "description": "Line moves, first run only: return moves from this many hours back. Later runs continue after the last move they saw."
+    },
+    "resumeFromLastRun": {
+      "title": "Resume from last run",
+      "type": "boolean",
+      "default": true,
+      "description": "Line moves: scheduled runs return only moves recorded since the previous run, so nothing is missed or repeated."
+    },
+    "stateKey": {
+      "title": "Tracker name",
+      "type": "string",
+      "editor": "textfield",
+      "default": "default",
+      "description": "Keep separate trackers apart (each sport and market filter also keeps its own position)."
+    },
+    "state": {
+      "title": "State",
+      "type": "string",
+      "editor": "select",
+      "default": "NJ",
+      "prefill": "NJ",
+      "enum": ["NJ", "NY", "PA", "MI", "IL", "OH", "MA", "AZ", "CO", "VA", "NC", "TN", "IN", "KS", "KY", "LA", "MD", "CT", "IA", "WV", "WY", "NH", "VT", "ME", "MO", "OR", "AR"],
+      "description": "Player prop line history: the DraftKings Sportsbook state to read. Lines can differ by state."
+    },
+    "marketIds": {
+      "title": "Market IDs",
+      "type": "array",
+      "editor": "stringList",
+      "description": "Player prop line history: DraftKings market ids to follow. Leave empty to pick up the sport's current player over/under markets automatically."
+    },
+    "player": {
+      "title": "Player",
+      "type": "string",
+      "editor": "textfield",
+      "description": "Player prop line history: optional part of a player name."
+    },
+    "stat": {
+      "title": "Stat",
+      "type": "string",
+      "editor": "textfield",
+      "description": "Player prop line history: optional stat, for example Points, Rebounds, Passing Yards or Shots on Goal."
+    },
+    "propOutput": {
+      "title": "Prop output",
+      "type": "string",
+      "editor": "select",
+      "default": "points",
+      "prefill": "points",
+      "enum": ["points", "summary"],
+      "enumTitles": ["Every recorded change", "One summary row per prop"],
+      "description": "Player prop line history: every change of line and price, or one row per prop with opening line, current line and move counts."
+    },
+    "maxMarkets": {
+      "title": "Max props",
+      "type": "integer",
+      "editor": "number",
+      "default": 20,
+      "minimum": 1,
+      "maximum": 2000,
+      "description": "Player prop line history: read at most this many props. Each prop is one API request."
+    },
+    "maxRequests": {
+      "title": "Max API requests",
+      "type": "integer",
+      "editor": "number",
+      "default": 50,
+      "minimum": 1,
+      "maximum": 5000,
+      "description": "Stop after this many requests on your draftkingsapi.com plan. Each page of up to 100 quotes, each snapshot and each prop history is one request."
+    },
+    "maxItems": {
+      "title": "Max items",
+      "type": "integer",
+      "editor": "number",
+      "default": 1000,
+      "prefill": 200,
+      "minimum": 1,
+      "maximum": 100000,
+      "description": "Stop after this many rows."
+    }
+  }
+}
